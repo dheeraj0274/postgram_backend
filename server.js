@@ -4,6 +4,8 @@ import connectDB from './config/connectDB.js';
 
 import userRoutes from './routes/userRoutes.js'
 import postRoutes from './routes/postRoutes.js'
+import path from "path";
+import { fileURLToPath } from "url";
 
 
 
@@ -25,6 +27,13 @@ app.get('/', (req,res)=>{
     res.send('Hi')
 })
 
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// ✅ This makes your uploads folder public
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 
 app.listen(Port , ()=> console.log(`server is running on the port ${Port}`)

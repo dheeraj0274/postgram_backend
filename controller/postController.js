@@ -6,7 +6,9 @@ import User from '../models/User.js';
 export const createPost = async (req, res) => {
   try {
     const { caption } = req.body;
-    const image = req.file ? req.file.path : null;
+    const image = req.file?.path;
+    console.log('image' , image);
+    
     console.log('hi');
     
 
@@ -19,6 +21,8 @@ export const createPost = async (req, res) => {
     await post.save();
     res.status(201).json(post);
   } catch (error) {
+    console.log('error', error);
+    
     res.status(500).json({ message: error.message });
   }
 };

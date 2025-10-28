@@ -11,13 +11,13 @@ import {
 } from '../controller/postController.js';
 
 // Multer setup
-import { upload } from '../config/cloundinary.js';
+import  upload  from '../config/cloundinary.js';
 
 
 
 const router = express.Router();
 
-router.post('/create', authMiddleware, upload.single('image'), createPost);
+router.post('/create', authMiddleware, upload.single('image') , createPost);
 router.get('/getAll' , authMiddleware , getAllPosts)
 router.get('/:userId', authMiddleware, getFeedPosts);
 

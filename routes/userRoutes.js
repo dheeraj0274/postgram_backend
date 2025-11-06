@@ -9,7 +9,7 @@ const route = express.Router();
 
 route.post('/login' , userLogin)
 route.post('/register' , userRegister);
-route.get('/me' ,authMiddleware, Profile)
+route.get('/me' , Profile)
 
 
 

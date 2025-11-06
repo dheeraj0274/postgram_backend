@@ -6,8 +6,9 @@ import User from '../models/User.js'
 const authMiddleware = async (req,res,next)=>{
     let token;
 
-    token =req.headers.authorization
-    // console.log(token);
+    token =req.headers.authorization;
+
+    
     
     if(!token || !token.startsWith('Bearer')) return res.status(401).json({message:'no token provided'});
 
@@ -19,7 +20,8 @@ const authMiddleware = async (req,res,next)=>{
        if(!user) return res.status(404).json({message:'User not found'})
 
         req.user=user;
-        next()
+        
+        next();
 
         
     } catch (error) {

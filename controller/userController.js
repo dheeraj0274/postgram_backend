@@ -5,7 +5,11 @@ export const Profile = async (req, res)=>{
 
     try {
 
-        const aboutUser = await User.findById(req.user._id)
+        const aboutUser = await User.findById(req.user.id)
+
+        console.log("user",req.user._id);
+        
+        
         if(!aboutUser) return res.status(404).json({message:'User not found'});
 
         res.status(200).json({
@@ -17,6 +21,9 @@ export const Profile = async (req, res)=>{
         res.status(500).json({message:'error profile' , success:false , error:error.message})
         
     }
+
+
+
 
 
 

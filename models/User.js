@@ -8,6 +8,8 @@ const UserSchema= mongoose.Schema({
   password:{type:String , required:true},
   userName:{type:String , requires:true},
   avatar:{type:String , default:''},
+  followers:{type:Number , default:0},
+  following:{type:Number, desfault:0},
   friends:[{type:mongoose.Schema.Types.ObjectId , ref:'User'}]
 
 
